@@ -1,29 +1,33 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { RootState } from "../store";
-import { setLanguage } from "../actions/language";
 import { translate } from "../i18n";
 import MyLibrary from "./MyLibrary";
+import Register from "./Register";
+import Login from "./Login";
+import Header from "../components/Header";
+import "../styles/Main.css";
 
 const Main: React.FC = () => {
   const dispatch = useDispatch();
   const { language } = useSelector((state: RootState) => state.language);
-
-  const handleLanguageChange = (e: any) => {
-    dispatch(setLanguage(e.target.value));
-  };
-
+  const { user } = useSelector((state: RootState) => state.auth);
   return (
-    <>
-      <button value={"tr"} onClick={handleLanguageChange}>
-        tr
-      </button>
-      <button value={"en"} onClick={handleLanguageChange}>
-        en
-      </button>
-      <p>{translate("welcome_message", language)}</p>
-      <MyLibrary />
-    </>
+    <div className="app-container">
+      <Header />
+      <Routes>
+        <Route
+          path={translate("register_route", language)}
+          element={<Register />}
+        />
+        <Route path={translate("login_route", language)} element={<Login />} />
+        <Route
+          path="/mylibrary"
+          element={user.length > 0 ? <MyLibrary /> : <Navigate to="/login" />}
+        />
+      </Routes>
+    </div>
   );
 };
 

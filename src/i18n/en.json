@@ -1,3 +1,14 @@
 {
-  "welcome_message": "Welcome to the {{company_name}} API"
+  "welcome_message": "Welcome to the {{company_name}} API",
+  "store": "Store",
+  "mylibrary": "My Library",
+  "login": "Login",
+  "register": "Register",
+  "store_route": "store",
+  "mylibrary_route": "mylibrary",
+  "login_route": "/login",
+  "register_route": "/register",
+  "email": "Email",
+  "password": "Password",
+  "confirm_password": "Confirm Password"
 }

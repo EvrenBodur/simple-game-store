@@ -1,3 +1,14 @@
 {
-  "welcome_message": "Hosgeldiniz"
+  "welcome_message": "Hosgeldiniz",
+  "store": "Mağaza",
+  "mylibrary": "Kütüphanem",
+  "login": "Oturum aç",
+  "register": "Kayıt ol",
+  "store_route": "magaza",
+  "mylibrary_route": "kutuphanem",
+  "login_route": "/oturum-ac",
+  "register_route": "/kayit-ol",
+  "email": "E-posta",
+  "password": "Şifre",
+  "confirm_password": "Sifreni onayla"
 }

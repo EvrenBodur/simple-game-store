@@ -1,0 +1,21 @@
+.flex-p10-space-between {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.margin-10 {
+  margin: 0px 10px;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.bg-color {
+  background-color: #1b2430;
+}
+
+.text-color {
+  color: #fff;
+}

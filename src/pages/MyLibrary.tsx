@@ -5,7 +5,8 @@ import { translate } from "../i18n";
 
 const MyLibrary: React.FC = () => {
   const { language } = useSelector((state: RootState) => state.language);
-  return <div>{translate("welcome_message", language)}</div>;
+  const { user } = useSelector((state: RootState) => state.auth);
+  return <div>MY LIBRARY</div>;
 };
 
 export default MyLibrary;
