@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { translate } from "../i18n";
 import GameCard from "../components/GameCard";
+import "../styles/Mylibrary.css";
 
 const MyLibrary: React.FC = () => {
   const localUserTest = JSON.parse(localStorage.getItem("userData") || "");
@@ -19,9 +20,9 @@ const MyLibrary: React.FC = () => {
   return (
     <>
       <div>
-        <h1>my purchased games</h1>
+        <h1 className="title">my purchased games</h1>
         <div>{renderList(localUser.purchasedGames)}</div>
-        <h1>my installed games</h1>
+        <h1 className="title">my installed games</h1>
         <div>{renderList(localUser.installedGames)}</div>
       </div>
       ;
