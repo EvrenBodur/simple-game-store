@@ -1,37 +1,37 @@
-import * as actionTypes from "../actions/actionTypes";
+import * as interfaces from "../actions/interfaces";
+import * as actions from "../actions/actionCreators";
 
-export const createUser = (user: string): actionTypes.RegisterAction => {
-  localStorage.setItem("userData", user);
-  window.location.href = "/login";
-  return {
-    type: actionTypes.CREATE_USER,
-    payload: user,
-  };
+export const createUser = (user: string) => async (dispatch: any) => {
+  await dispatch(actions.createUserLoading());
+  try {
+    localStorage.setItem("userData", user);
+    window.location.href = "/login";
+    await dispatch(actions.createUserSuccess(user));
+  } catch (error) {
+    await dispatch(actions.createUserFail(error));
+  }
 };
 
-export const login = (user: string): actionTypes.LoginAction => {
-  const localUser = localStorage?.getItem("userData");
+export const login = (user: string) => async (dispatch: any) => {
+  await dispatch(actions.loginLoading());
+  const localUser = localStorage.getItem("userData") || "";
+  let parseLocalUser;
+  let parseUser;
 
-  if (localUser) {
-    const parseLocalUser = JSON.parse(localUser);
-    const parseUser = JSON.parse(user);
+  if (localUser.length > 0) {
+    parseLocalUser = JSON.parse(localUser);
+    parseUser = JSON.parse(user);
+  } else {
+    await dispatch(actions.loginFail("No user found"));
+    return;
+  }
+
+  try {
     if (parseLocalUser.password === parseUser.password) {
       window.location.href = "/mylibrary";
-    } else {
-      return {
-        type: actionTypes.LOGIN_FAILED,
-        payload: "Credentials is incorrect",
-      };
+      await dispatch(actions.loginSuccess(user));
     }
-
-    return {
-      type: actionTypes.LOGIN,
-      payload: parseLocalUser,
-    };
-  } else {
-    return {
-      type: actionTypes.LOGIN_FAILED,
-      payload: "User not found",
-    };
+  } catch (error) {
+    await dispatch(actions.loginFail(error));
   }
 };

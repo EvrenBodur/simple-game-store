@@ -6,6 +6,7 @@ import { translate } from "../i18n";
 import MyLibrary from "./MyLibrary";
 import Register from "./Register";
 import Login from "./Login";
+import Store from "./Store";
 import Header from "../components/Header";
 import "../styles/Main.css";
 
@@ -13,10 +14,12 @@ const Main: React.FC = () => {
   const dispatch = useDispatch();
   const { language } = useSelector((state: RootState) => state.language);
   const { user } = useSelector((state: RootState) => state.auth);
+
   return (
     <div className="app-container">
       <Header />
       <Routes>
+        <Route path="/" element={<Store />} />
         <Route
           path={translate("register_route", language)}
           element={<Register />}

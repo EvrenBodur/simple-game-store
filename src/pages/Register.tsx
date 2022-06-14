@@ -11,10 +11,13 @@ interface RegisterProps {
   password: string;
   confirmPassword: string;
   email: string;
+  purchasedGames: string[];
+  installedGames: string[];
+  likedGames: string[];
 }
 
 const Register: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const { language } = useSelector((state: RootState) => state.language);
 
   const [formData, setFormData] = useState<RegisterProps>({
@@ -22,6 +25,9 @@ const Register: React.FC = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    purchasedGames: [],
+    installedGames: [],
+    likedGames: [],
   });
 
   const handleFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +58,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="register-container">
       <div className="form-container">
         <h1>{translate("register", language)}</h1>
         <input

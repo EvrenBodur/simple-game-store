@@ -12,7 +12,7 @@ interface LoginProps {
 }
 
 const Login: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const { language } = useSelector((state: RootState) => state.language);
   const { user, error } = useSelector((state: RootState) => state.auth);
   const [parsedUser, setParsedUser] = useState<LoginProps>({
@@ -49,8 +49,9 @@ const Login: React.FC = () => {
       setParsedUser(JSON.parse(user));
     }
   }, [user]);
+
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="form-container">
         <h1>{translate("login", language)}</h1>
         <input

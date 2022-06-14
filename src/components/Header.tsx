@@ -24,10 +24,7 @@ const Header: React.FC = () => {
   return (
     <div className="flex-p10-space-between bg-color">
       <div className="flex-p10-space-between">
-        <Link
-          className="margin-10 text-decoration-none text-color"
-          to={translate("store_route", language)}
-        >
+        <Link className="margin-10 text-decoration-none text-color" to="/">
           {translate("store", language)}
         </Link>
         <Link

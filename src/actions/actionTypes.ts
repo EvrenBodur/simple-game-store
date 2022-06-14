@@ -1,42 +1,30 @@
 //Language
 export const SET_LANGUAGE = "SET_LANGUAGE";
 
-export interface LangState {
-  language: string;
-}
-
-interface SetLanguageAction {
-  type: typeof SET_LANGUAGE;
-  payload: string;
-}
-
-export type LangAction = SetLanguageAction;
-
 //Auth
+export const CREATE_USER_LOADING = "CREATE_USER_LOADING";
+export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
+export const CREATE_USER_FAILED = "CREATE_USER_FAILED";
 
-export const CREATE_USER = "CREATE_USER";
-export const LOGIN = "LOGIN";
+export const LOGIN_LOADING = "LOGIN_LOADING";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 
-export interface UserState {
-  user: string;
-  error: string;
-}
+// API
+export const GET_GAMES_DATA_LOADING = "GET_GAMES_DATA_LOADING";
+export const GET_GAMES_DATA_SUCCESS = "GET_GAMES_DATA_SUCCESS";
+export const GET_GAMES_DATA_FAILED = "GET_GAMES_DATA_FAILED";
 
-export interface LoginState {
-  user: string;
-  error: string;
-}
+// Purchase and install
 
-interface LoginUserAction {
-  type: string;
-  payload: string;
-}
+export const PURCHASE_LOADING = "PURCHASE_LOADING";
+export const PURCHASE_SUCCESS = "PURCHASE_SUCCESS";
+export const PURCHASE_FAILED = "PURCHASE_FAILED";
 
-interface CreateUserAction {
-  type: typeof CREATE_USER;
-  payload: string;
-}
+export const INSTALL_GAME_LOADING = "INSTALL_GAME_LOADING";
+export const INSTALL_GAME_SUCCESS = "INSTALL_GAME_SUCCESS";
+export const INSTALL_GAME_FAILED = "INSTALL_GAME_FAILED";
 
-export type RegisterAction = CreateUserAction;
-export type LoginAction = LoginUserAction;
+export const LIKE_GAME_LOADING = "LIKE_GAME_LOADING";
+export const LIKE_GAME_SUCCESS = "LIKE_GAME_SUCCESS";
+export const LIKE_GAME_FAILED = "IKEe_GAME_FAILED";
